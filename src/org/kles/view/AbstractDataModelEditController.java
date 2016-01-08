@@ -27,7 +27,7 @@ public class AbstractDataModelEditController {
     protected String errorMessage = "";
     protected Map<BooleanBinding, String> messages = new LinkedHashMap<>();
 
-**
+    /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
@@ -36,7 +36,7 @@ public class AbstractDataModelEditController {
 
     }
 
-**
+    /**
      * Sets the stage of this dialog.
      *
      * @param dialogStage
@@ -49,7 +49,7 @@ public class AbstractDataModelEditController {
         mainApp = main;
     }
 
-**
+    /**
      * Sets the datamodel to be edited in the dialog.
      *
      * @param datamodel
@@ -58,7 +58,7 @@ public class AbstractDataModelEditController {
         this.datamodel = datamodel;
     }
 
-**
+    /**
      * Returns true if the user clicked OK, false otherwise.
      *
      * @return
@@ -67,7 +67,7 @@ public class AbstractDataModelEditController {
         return okClicked;
     }
 
-**
+    /**
      * Called when the user clicks ok.
      */
     @FXML
@@ -78,7 +78,7 @@ public class AbstractDataModelEditController {
         }
     }
 
-**
+    /**
      * Called when the user clicks cancel.
      */
     @FXML
@@ -86,7 +86,7 @@ public class AbstractDataModelEditController {
         dialogStage.close();
     }
 
-**
+    /**
      * Validates the user input in the text fields.
      *
      * @return true if the input is valid

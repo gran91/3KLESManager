@@ -142,7 +142,7 @@ public class TextFieldValidator {
         ListBinding<Node> nodeListBinding = new ListBinding<Node>() {
 
             {
-/ calling bind(...) here won't work, neither will using WeakInvalidationListeners. Not sure why....
+// calling bind(...) here won't work, neither will using WeakInvalidationListeners. Not sure why....
                 InvalidationListener invalidationListener = obs -> invalidate();
                 Arrays.stream(validationBindings).forEach(binding
                         -> binding.addListener(invalidationListener));
@@ -167,7 +167,7 @@ public class TextFieldValidator {
         ListBinding<Node> nodeListBinding = new ListBinding<Node>() {
 
             {
-/ calling bind(...) here won't work, neither will using WeakInvalidationListeners. Not sure why....
+// calling bind(...) here won't work, neither will using WeakInvalidationListeners. Not sure why....
                 InvalidationListener invalidationListener = obs -> invalidate();
                 Arrays.stream(validationBindings).forEach(binding
                         -> binding.addListener(invalidationListener));
@@ -184,6 +184,6 @@ public class TextFieldValidator {
             }
         };
         return string;
-/Bindings.bindContent(string, nodeListBinding);
+//Bindings.bindContent(string, nodeListBinding);
     }
 }

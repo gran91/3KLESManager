@@ -46,7 +46,7 @@ public class UndecoratorScene extends Scene {
     static public final String DEFAULT_STAGEDECORATION_UTILITY = "stageUtilityDecoration.fxml";
     Undecorator undecorator;
 
-**
+    /**
      * Basic constructor with built-in behavior
      *
      * @param stage The main stage
@@ -56,7 +56,7 @@ public class UndecoratorScene extends Scene {
         this(stage, StageStyle.TRANSPARENT, root, DEFAULT_STAGEDECORATION);
     }
 
-**
+    /**
      * UndecoratorScene constructor
      *
      * @param stage The main stage
@@ -69,7 +69,7 @@ public class UndecoratorScene extends Scene {
 
         super(root);
         
-*
+        /*
          * Fxml
          */
         if (stageDecorationFxml == null) {
@@ -82,18 +82,18 @@ public class UndecoratorScene extends Scene {
         undecorator = new Undecorator(stage, root, stageDecorationFxml, stageStyle);
         super.setRoot(undecorator);
         
-/ Customize it by CSS if needed:
+        // Customize it by CSS if needed:
         if (stageStyle == StageStyle.UTILITY) {
             undecorator.getStylesheets().add(DEFAULT_STYLESHEET_UTILITY);
         } else {
             undecorator.getStylesheets().add(DEFAULT_STYLESHEET);
         }
 
-/ Transparent scene and stage
+        // Transparent scene and stage
         stage.initStyle(StageStyle.TRANSPARENT);
         super.setFill(Color.TRANSPARENT);
         
-/ Default Accelerators
+        // Default Accelerators
         undecorator.installAccelerators(this);
         
     }

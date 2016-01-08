@@ -58,9 +58,6 @@ public class MainApp extends Application {
     public static final Image LOGO_IMAGE = new Image(RootLayoutController.class.getResourceAsStream("/resources/images/logo.png"));
     private RestFulOVH ovhAPI;
 
-**
-     * Constructor
-     */
     public MainApp() {
         clock.start();
         if (prefs.get(LANGUAGE, null) == null) {
@@ -102,10 +99,6 @@ public class MainApp extends Application {
 
     }
 
-**
-     * Initializes the root layout and tries to load the last opened person
-     * file.
-     */
     public void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -181,14 +174,6 @@ public class MainApp extends Application {
         }
     }
 
-**
-     * Opens a dialog to edit details for the specified datamodel. If the user
-     * clicks OK, the changes are saved into the provided datamodel object and
-     * true is returned.
-     *
-     * @param model the datamodel object to be edited
-     * @return true if the user clicked OK, false otherwise.
-     */
     public boolean showDataModelEditDialog(AbstractDataModel model) {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -217,11 +202,6 @@ public class MainApp extends Application {
         }
     }
 
-**
-     * Returns the main stage.
-     *
-     * @return
-     */
     public Stage getPrimaryStage() {
         return primaryStage;
     }

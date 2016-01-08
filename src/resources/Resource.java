@@ -27,7 +27,7 @@ public class Resource {
     public static String DOMAIN = "3kles-consulting.com";
     public static String API = "https://eu.api.ovh.com/1.0/";
 
-*Format Date*/
+    /*Format Date*/
     public static final SimpleDateFormat sdfYMD8 = new SimpleDateFormat("YYYYmmdd");
     public static final SimpleDateFormat sdfYMD8_HHmmss = new SimpleDateFormat("YYYYmmdd_HHmmss");
 

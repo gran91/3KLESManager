@@ -54,7 +54,7 @@ public class LoginController extends AbstractDataModelEditController {
     private DateTimeFormatter ovhFormatter = DateTimeFormatter.ofPattern(DateTimePicker.stdformat);
     private int inMail = 0;
 
-**
+    /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
@@ -80,7 +80,7 @@ public class LoginController extends AbstractDataModelEditController {
                         store.connect(host, port, loginField.getText(), passwordField.getText());
                         Folder inbox = store.getFolder("INBOX");
                         inMail = inbox.getMessageCount();
-                        for(Folder f:inbox.list()){
+                        for (Folder f : inbox.list()) {
                             System.out.println(f.getName());
                         }
                         inbox.open(Folder.READ_ONLY);
@@ -121,7 +121,7 @@ public class LoginController extends AbstractDataModelEditController {
                             task.setMainApp(mainApp);
                             task.run();
 
-/JSONObject resp = mainApp.getRestFulOVH().getResponder();
+//JSONObject resp = mainApp.getRestFulOVH().getResponder();
 //                            JSONObject resp=task.getValue();
 //                            if (resp != null) {
 //                                Responder respond = new Responder();
@@ -156,7 +156,7 @@ public class LoginController extends AbstractDataModelEditController {
         return "3klessession " + ssID;
     }
 
-**
+    /**
      * Called when the user clicks ok.
      */
     @FXML
@@ -170,7 +170,7 @@ public class LoginController extends AbstractDataModelEditController {
         }
     }
 
-**
+    /**
      * Called when the user clicks cancel.
      */
     @FXML
@@ -183,7 +183,7 @@ public class LoginController extends AbstractDataModelEditController {
         mainApp.showConnectionEditDialog();
     }
 
-**
+    /**
      * Validates the user input in the text fields.
      *
      * @return true if the input is valid

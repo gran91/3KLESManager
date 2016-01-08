@@ -63,7 +63,7 @@ public class SimpleIndicator extends Control {
         return indicatorStyle;
     }
 
-/ ******************** Style related *************************************
+//******************** Style related *************************************
     @Override
     protected Skin createDefaultSkin() {
         return new SimpleIndicatorSkin(this);

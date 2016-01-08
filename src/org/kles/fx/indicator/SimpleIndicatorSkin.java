@@ -18,7 +18,7 @@ public class SimpleIndicatorSkin extends SkinBase<SimpleIndicator> implements Sk
     private Region main;
     private Region highlight;
 
-/ ******************** Constructors **************************************
+//******************** Constructors **************************************
     public SimpleIndicatorSkin(final SimpleIndicator CONTROL) {
         super(CONTROL);
         pane = new Pane();
@@ -28,7 +28,7 @@ public class SimpleIndicatorSkin extends SkinBase<SimpleIndicator> implements Sk
         registerListeners();
     }
 
-/ ******************** Initialization ************************************
+//******************** Initialization ************************************
     private void init() {
         if (Double.compare(getSkinnable().getPrefWidth(), 0.0) <= 0 || Double.compare(getSkinnable().getPrefHeight(), 0.0) <= 0
                 || getSkinnable().getWidth() <= 0 || getSkinnable().getHeight() <= 0) {
@@ -71,7 +71,7 @@ public class SimpleIndicatorSkin extends SkinBase<SimpleIndicator> implements Sk
         getSkinnable().indicatorStyleProperty().addListener(observable -> handleControlPropertyChanged("UPDATE"));
     }
 
-/ ******************** Methods *******************************************
+    // ******************** Methods*******************************************
     protected void handleControlPropertyChanged(final String PROPERTY) {
         if ("RESIZE".equals(PROPERTY)) {
             resize();
@@ -118,7 +118,7 @@ public class SimpleIndicatorSkin extends SkinBase<SimpleIndicator> implements Sk
         return super.computePrefHeight(prefWidth, TOP_INSET, RIGHT_INSET, BOTTOM_INSET, LEFT_INSET);
     }
 
-/ ******************** Private Methods ***********************************
+    // ******************** Private Methods***********************************
     private void update() {
         getSkinnable().getStyleClass().setAll("indicator", getSkinnable().getIndicatorStyle().CLASS);
     }

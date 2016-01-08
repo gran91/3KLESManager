@@ -206,7 +206,7 @@ public class FxUtil {
         expContent.add(label, 0, 0);
         expContent.add(textArea, 0, 1);
 
-/ Set expandable Exception into the dialog pane.
+// Set expandable Exception into the dialog pane.
         alert.getDialogPane().setExpandableContent(expContent);
 
         alert.showAndWait();

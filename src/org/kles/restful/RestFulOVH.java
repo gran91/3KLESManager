@@ -155,7 +155,7 @@ public class RestFulOVH {
             HttpURLConnection req = (HttpURLConnection) QUERY.openConnection();
             req.setRequestMethod(METHOD);
             req.setRequestProperty("Content-Type", "application/json;charset=utf-8");
-            req.setRequestProperty("Accept-Charset",    "utf-8");
+            req.setRequestProperty("Accept-Charset", "utf-8");
             req.setRequestProperty("X-Ovh-Application", AK);
             req.setRequestProperty("X-Ovh-Consumer", CK);
             req.setRequestProperty("X-Ovh-Signature", signature);
@@ -184,7 +184,7 @@ public class RestFulOVH {
             }
             in.close();
 
-/Affichage du résultat
+//Affichage du résultat
             System.out.println(response.toString());
 
         } catch (MalformedURLException e) {

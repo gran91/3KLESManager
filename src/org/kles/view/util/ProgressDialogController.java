@@ -19,10 +19,10 @@ public class ProgressDialogController {
     private ProgressIndicator progress;
 
     private Stage stage;
-    
+
     private Service service;
 
-**
+    /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */

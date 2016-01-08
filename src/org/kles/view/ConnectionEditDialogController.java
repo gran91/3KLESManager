@@ -22,7 +22,7 @@ public class ConnectionEditDialogController extends AbstractDataModelEditControl
 
     private BooleanBinding urlM3Boolean, portBoolean;
 
-**
+    /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
@@ -38,7 +38,7 @@ public class ConnectionEditDialogController extends AbstractDataModelEditControl
         portField.setText((MainApp.prefs.get("connection.port", null) == null) ? "993" : MainApp.prefs.get("connection.port", null));
     }
 
-**
+    /**
      * Called when the user clicks ok.
      */
     @FXML
@@ -51,7 +51,7 @@ public class ConnectionEditDialogController extends AbstractDataModelEditControl
         }
     }
 
-**
+    /**
      * Validates the user input in the text fields.
      *
      * @return true if the input is valid

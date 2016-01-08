@@ -33,7 +33,7 @@ public class RootLayoutController {
     private Menu langmenu, skinmenu;
     private MainApp mainApp;
 
-**
+    /**
      * Is called by the main application to give a reference back to itself.
      *
      * @param mainApp
@@ -70,7 +70,7 @@ public class RootLayoutController {
         });
     }
 
-**
+    /**
      * Opens an about dialog.
      */
     @FXML
@@ -78,7 +78,7 @@ public class RootLayoutController {
         FxUtil.showAlert(Alert.AlertType.INFORMATION, mainApp.getResourceMessage().getString("about.title"), String.format(mainApp.getResourceMessage().getString("about.header"), Resource.VERSION), String.format(mainApp.getResourceMessage().getString("about.text"), Resource.VERSION));
     }
 
-**
+    /**
      * Closes the application.
      */
     @FXML

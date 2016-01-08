@@ -67,7 +67,7 @@ public class ResponderManagementController {
                 return new Task<JSONObject>() {
                     @Override
                     protected JSONObject call() throws ParseException {
-/String msg=new String(message.getText().getBytes(), Charset.forName("UTF-8")); 
+//String msg=new String(message.getText().getBytes(), Charset.forName("UTF-8")); 
                         String msg = "";
                         try {
                             msg = new String(message.getText().getBytes("UTF-8"), "ISO-8859-1");
@@ -199,7 +199,7 @@ public class ResponderManagementController {
         taskGetResponder.setMainApp(mainApp);
     }
 
-**
+    /**
      * Is called by the main application to give a reference back to itself.
      *
      * @param mainApp

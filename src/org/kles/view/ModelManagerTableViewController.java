@@ -17,7 +17,7 @@ public class ModelManagerTableViewController extends AbstractModelManagerControl
         super(dataname);
     }
 
-**
+    /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
@@ -30,7 +30,7 @@ public class ModelManagerTableViewController extends AbstractModelManagerControl
 
     }
 
-**
+    /**
      * Is called by the main application to give a reference back to itself.
      *
      * @param mainApp
@@ -48,7 +48,7 @@ public class ModelManagerTableViewController extends AbstractModelManagerControl
         table.setItems(this.listData);
     }
 
-**
+    /**
      * Called when the user clicks on the delete button.
      */
     @FXML
@@ -62,7 +62,7 @@ public class ModelManagerTableViewController extends AbstractModelManagerControl
         }
     }
 
-**
+    /**
      * Called when the user clicks the new button. Opens a dialog to edit
      * details for a new server.
      */
@@ -73,7 +73,7 @@ public class ModelManagerTableViewController extends AbstractModelManagerControl
         super.handleCopy();
     }
 
-**
+    /**
      * Called when the user clicks the edit button. Opens a dialog to edit
      * details for the selected datamodel.
      */

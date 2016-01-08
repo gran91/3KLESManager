@@ -173,7 +173,7 @@ public class Undecorator extends StackPane {
         setStageStyle(st);
         loadConfig();
 
-/ Properties 
+        // Properties 
         maximizeProperty = new SimpleBooleanProperty(false);
         maximizeProperty.addListener(new ChangeListener<Boolean>() {
             @Override
@@ -204,12 +204,12 @@ public class Undecorator extends StackPane {
             }
         });
 
-/ The controller
+        // The controller
         undecoratorController = new UndecoratorController(this);
 
         undecoratorController.setAsStageDraggable(stage, clientArea);
 
-/ Focus drop shadows: radius, spread, offsets
+        // Focus drop shadows: radius, spread, offsets
         dsFocused = new DropShadow(BlurType.THREE_PASS_BOX, Color.BLACK, SHADOW_WIDTH, 0.1, 0, 0);
         dsNotFocused = new DropShadow(BlurType.THREE_PASS_BOX, Color.DARKGREY, SHADOW_WIDTH, 0, 0, 0);
 
@@ -226,7 +226,7 @@ public class Undecorator extends StackPane {
             }
         });
 
-/ UI part of the decoration
+        // UI part of the decoration
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(stageDecorationFxmlAsURL);
             fxmlLoader.setController(this);
@@ -237,12 +237,12 @@ public class Undecorator extends StackPane {
 
         initDecoration();
 
-*
+        /*
          * Resize rectangle
          */
         undecoratorController.setStageResizableWith(stage, decorationRoot, RESIZE_PADDING, SHADOW_WIDTH);
 
-/ If not resizable (quick fix)
+        // If not resizable (quick fix)
         if (fullscreen
                 != null) {
             fullscreen.setVisible(stage.isResizable());
@@ -258,7 +258,7 @@ public class Undecorator extends StackPane {
             AnchorPane.setRightAnchor(minimize, 34d);
         }
 
-/ Glass Pane
+        // Glass Pane
         glassPane = new Pane();
 
         glassPane.setMouseTransparent(true);
@@ -267,12 +267,12 @@ public class Undecorator extends StackPane {
         title.getStyleClass().add("undecorator-label-titlebar");
         shadowRectangle.getStyleClass().add(shadowBackgroundStyleClass);
 //        resizeRect.getStyleClass().add(resizeStyleClass);
-/ Do not intercept mouse events on stage's shadow
+        // Do not intercept mouse events on stage's shadow
         shadowRectangle.setMouseTransparent(true);
 
-/ Is it possible to apply an effect without affecting decendent?
+        // Is it possible to apply an effect without affecting decendent?
         super.setStyle("-fx-background-color:transparent;");
-/ Or this:
+        // Or this:
 //        super.setStyle("-fx-background-color:transparent;-fx-border-color:white;-fx-border-radius:30;-fx-border-width:1;-fx-border-insets:"+SHADOW_WIDTH+";");
 //        super.setEffect(dsFocused);
 //          super.getChildren().addAll(clientArea,stageDecoration, glassPane);
@@ -281,11 +281,11 @@ public class Undecorator extends StackPane {
         backgroundRect.getStyleClass().add(decorationBackgroundStyle);
         backgroundRect.setMouseTransparent(true);
 
-/ Add all layers
+        // Add all layers
         super.getChildren().addAll(shadowRectangle, backgroundRect, clientArea, stageDecoration, glassPane);
 //        super.getChildren().addAll(shadowRectangle, backgroundRect);
 
-*
+        /*
          * Focused stage
          */
         stage.focusedProperty()
@@ -297,7 +297,7 @@ public class Undecorator extends StackPane {
                     }
                 }
                 );
-*
+        /*
          * Fullscreen
          */
         if (fullscreen
@@ -329,7 +329,7 @@ public class Undecorator extends StackPane {
                     minimize.setVisible(!fullscreenState.booleanValue());
                     resize.setVisible(!fullscreenState.booleanValue());
                     if (fullscreenState.booleanValue()) {
-/ String and icon
+                        // String and icon
                         fullscreen.getStyleClass().add("decoration-button-unfullscreen");
                         fullscreen.setTooltip(new Tooltip(LOC.getString("Restore")));
 
@@ -337,7 +337,7 @@ public class Undecorator extends StackPane {
                         if (fullscreenButtonTransition != null) {
                             fullscreenButtonTransition.stop();
                         }
-/ Animate the fullscreen button
+                        // Animate the fullscreen button
                         fullscreenButtonTransition = new TranslateTransition();
                         fullscreenButtonTransition.setDuration(Duration.millis(3000));
                         fullscreenButtonTransition.setToX(66);
@@ -351,7 +351,7 @@ public class Undecorator extends StackPane {
                         fullscreenButtonTransition.play();
                         fullscreen.setOpacity(0.2);
                     } else {
-/ String and icon
+                        // String and icon
                         fullscreen.getStyleClass().remove("decoration-button-unfullscreen");
                         fullscreen.setTooltip(new Tooltip(LOC.getString("FullScreen")));
 
@@ -360,7 +360,7 @@ public class Undecorator extends StackPane {
                         if (fullscreenButtonTransition != null) {
                             fullscreenButtonTransition.stop();
                         }
-/ Animate the change
+                        // Animate the change
                         fullscreenButtonTransition = new TranslateTransition();
                         fullscreenButtonTransition.setDuration(Duration.millis(1000));
                         fullscreenButtonTransition.setToX(0);
@@ -382,7 +382,7 @@ public class Undecorator extends StackPane {
         computeAllSizes();
     }
 
-**
+    /**
      * Compute the needed clip for stage's shadow border
      *
      * @param newBounds
@@ -397,7 +397,7 @@ public class Undecorator extends StackPane {
         internal.setY(SHADOW_WIDTH);
         internal.setWidth(newBounds.getWidth());
         internal.setHeight(newBounds.getHeight());
-        internal.setArcWidth(shadowRectangle.getArcWidth());/ shadowRectangle CSS cannot be applied on this
+        internal.setArcWidth(shadowRectangle.getArcWidth());    // shadowRectangle CSS cannot be applied on this
         internal.setArcHeight(shadowRectangle.getArcHeight());
 
         external.setWidth(newBounds.getWidth() + SHADOW_WIDTH * 2);
@@ -407,13 +407,13 @@ public class Undecorator extends StackPane {
 
     }
 
-**
+    /**
      * Install default accelerators
      *
      * @param scene
      */
     public void installAccelerators(Scene scene) {
-/ Accelerators
+        // Accelerators
         if (stage.isResizable()) {
             scene.getAccelerators().put(new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN, KeyCombination.SHORTCUT_DOWN), new Runnable() {
                 @Override
@@ -436,7 +436,7 @@ public class Undecorator extends StackPane {
         });
     }
 
-**
+    /**
      * Init the minimum/pref/max size in order to be reflected in the primary stage
      */
     private void computeAllSizes() {
@@ -459,7 +459,7 @@ public class Undecorator extends StackPane {
             setMaxHeight(maxHeight);
         }
     }
-*
+    /*
      * The sizing is based on client area's bounds.
      */
 
@@ -505,7 +505,7 @@ public class Undecorator extends StackPane {
         return stageStyle;
     }
 
-**
+    /**
      * Activate fade in transition on showing event
      */
     public void setFadeInTransition() {
@@ -522,7 +522,7 @@ public class Undecorator extends StackPane {
         });
     }
 
-**
+    /**
      * Launch the fade out transition. Must be invoked when the application/window is supposed to be closed
      */
     public void setFadeOutTransition() {
@@ -552,7 +552,7 @@ public class Undecorator extends StackPane {
         return backgroundRect;
     }
 
-**
+    /**
      * Background opacity
      *
      * @param opacity
@@ -561,12 +561,12 @@ public class Undecorator extends StackPane {
         shadowRectangle.setOpacity(opacity);
     }
 
-**
+    /**
      * Manage buttons and menu items
      */
     public void initDecoration() {
         MenuItem minimizeMenuItem = null;
-/ Menu
+        // Menu
         contextMenu.setAutoHide(true);
         if (minimize != null) { // Utility Stage
             minimizeMenuItem = new MenuItem(LOC.getString("Minimize"));
@@ -592,14 +592,14 @@ public class Undecorator extends StackPane {
             contextMenu.getItems().addAll(maximizeMenuItem, new SeparatorMenuItem());
         }
 
-/ Fullscreen
+        // Fullscreen
         if (stageStyle != StageStyle.UTILITY && stage.isResizable()) {
             fullScreenMenuItem = new CheckMenuItem(LOC.getString("FullScreen"));
             fullScreenMenuItem.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
-/ fake
-/maximizeProperty().set(!maximizeProperty().get());
+                    // fake
+                    //maximizeProperty().set(!maximizeProperty().get());
                     switchFullscreen();
                 }
             });
@@ -608,7 +608,7 @@ public class Undecorator extends StackPane {
             contextMenu.getItems().addAll(fullScreenMenuItem, new SeparatorMenuItem());
         }
 
-/ Close
+        // Close
         MenuItem closeMenuItem = new MenuItem(LOC.getString("Close"));
         closeMenuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -631,7 +631,7 @@ public class Undecorator extends StackPane {
             }
         });
 
-/ Close button
+        // Close button
         close.setTooltip(new Tooltip(LOC.getString("Close")));
         close.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -640,8 +640,8 @@ public class Undecorator extends StackPane {
             }
         });
 
-/ Maximize button
-/ If changed via contextual menu
+        // Maximize button
+        // If changed via contextual menu
         maximizeProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
@@ -682,7 +682,7 @@ public class Undecorator extends StackPane {
             });
         }
 
-/ Minimize button
+        // Minimize button
         if (minimize != null) { // Utility Stage
             minimize.setTooltip(new Tooltip(LOC.getString("Minimize")));
             minimize.setOnAction(new EventHandler<ActionEvent>() {
@@ -692,12 +692,12 @@ public class Undecorator extends StackPane {
                 }
             });
         }
-/ Transfer stage title to undecorator tiltle label
+        // Transfer stage title to undecorator tiltle label
         title.textProperty().bind(stage.titleProperty());
     }
 
     public void switchFullscreen() {
-/ Invoke runLater even if it's on EDT: Crash apps on Mac
+        // Invoke runLater even if it's on EDT: Crash apps on Mac
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -718,7 +718,7 @@ public class Undecorator extends StackPane {
         closeProperty().set(!closeProperty().get());
     }
 
-**
+    /**
      * Bridge to the controller to enable the specified node to drag the stage
      *
      * @param stage
@@ -728,15 +728,15 @@ public class Undecorator extends StackPane {
         undecoratorController.setAsStageDraggable(stage, node);
     }
 
-**
+    /**
      * Switch the visibility of the window's drop shadow
      */
     protected void setShadow(boolean shadow) {
-/ Already removed?
+        // Already removed?
         if (!shadow && shadowRectangle.getEffect() == null) {
             return;
         }
-/ From fullscreen to maximize case
+        // From fullscreen to maximize case
         if (shadow && maximizeProperty.get()) {
             return;
         }
@@ -750,13 +750,13 @@ public class Undecorator extends StackPane {
         }
     }
 
-**
+    /**
      * Set on/off the stage shadow effect
      *
      * @param b
      */
     protected void setShadowFocused(boolean b) {
-/ Do not change anything while maximized (in case of dialog closing for instance)
+        // Do not change anything while maximized (in case of dialog closing for instance)
         if (stage.isFullScreen()) {
             return;
         }
@@ -770,7 +770,7 @@ public class Undecorator extends StackPane {
         }
     }
 
-**
+    /**
      * Set the layout of different layers of the stage
      */
     @Override
@@ -797,11 +797,11 @@ public class Undecorator extends StackPane {
                 stageDecoration.setLayoutX(SHADOW_WIDTH + ROUNDED_DELTA);
                 stageDecoration.setLayoutY(SHADOW_WIDTH + ROUNDED_DELTA);
             } //            else if (node == resizeRect) {
-/                resizeRect.setWidth(w - SHADOW_WIDTH * 2);
-/                resizeRect.setHeight(h - SHADOW_WIDTH * 2);
-/                resizeRect.setLayoutX(SHADOW_WIDTH);
-/                resizeRect.setLayoutY(SHADOW_WIDTH);
-/            } 
+            //                resizeRect.setWidth(w - SHADOW_WIDTH * 2);
+            //                resizeRect.setHeight(h - SHADOW_WIDTH * 2);
+            //                resizeRect.setLayoutX(SHADOW_WIDTH);
+            //                resizeRect.setLayoutY(SHADOW_WIDTH);
+            //            } 
             else {
                 node.resize(w - SHADOW_WIDTH * 2 - ROUNDED_DELTA * 2, h - SHADOW_WIDTH * 2 - ROUNDED_DELTA * 2);
                 node.setLayoutX(SHADOW_WIDTH + ROUNDED_DELTA);
@@ -837,7 +837,7 @@ public class Undecorator extends StackPane {
         glassPane.getChildren().remove(node);
     }
 
-**
+    /**
      * Returns the decoration (buttons...)
      *
      * @return
@@ -846,7 +846,7 @@ public class Undecorator extends StackPane {
         return stageDecoration;
     }
 
-**
+    /**
      * Prepare Stage for dock feedback display
      */
     void buildDockFeedbackStage() {
@@ -870,7 +870,7 @@ public class Undecorator extends StackPane {
         dockFeedbackPopup.sizeToScene();
     }
 
-**
+    /**
      * Activate dock feedback on screen's bounds
      *
      * @param x

@@ -17,7 +17,7 @@ import javafx.scene.input.KeyEvent;
 public class InputConstraints {
 
     private InputConstraints() {
-/ not needed here
+// not needed here
     }
 
     public static void noLeadingAndTrailingBlanks(final TextField textField) {

@@ -15,14 +15,14 @@ import org.kles.model.AbstractDataModel;
 
 public abstract class AbstractModelManagerController implements IModelManagerView {
 
-/ Reference to the main application.
+// Reference to the main application.
     protected MainApp mainApp;
     protected ResourceBundle resourseMessage;
     protected String datamodelname = "";
     protected AbstractDataModel datamodel;
     protected ObservableList listData;
 
-**
+    /**
      * The constructor. The constructor is called before the initialize()
      * method.
      *
@@ -33,7 +33,7 @@ public abstract class AbstractModelManagerController implements IModelManagerVie
         datamodelname = dataname;
     }
 
-**
+    /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
@@ -41,7 +41,7 @@ public abstract class AbstractModelManagerController implements IModelManagerVie
     private void initialize() {
     }
 
-**
+    /**
      * Is called by the main application to give a reference back to itself.
      *
      * @param mainApp
@@ -55,7 +55,7 @@ public abstract class AbstractModelManagerController implements IModelManagerVie
 
     }
 
-**
+    /**
      * Called when the user clicks the new button. Opens a dialog to edit
      * details for a new datamodel.
      */
@@ -69,7 +69,7 @@ public abstract class AbstractModelManagerController implements IModelManagerVie
         }
     }
 
-**
+    /**
      * Called when the user clicks the new button. Opens a dialog to edit
      * details for a new datamodel.
      */
@@ -88,7 +88,7 @@ public abstract class AbstractModelManagerController implements IModelManagerVie
         }
     }
 
-**
+    /**
      * Called when the user clicks the edit button. Opens a dialog to edit
      * details for the selected datamodel.
      */

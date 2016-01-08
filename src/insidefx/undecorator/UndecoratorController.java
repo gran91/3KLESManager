@@ -50,7 +50,7 @@ public class UndecoratorController {
     }
 
 
-*
+    /*
      * Actions
      */
     protected void maximizeOrRestore() {
@@ -143,7 +143,7 @@ public class UndecoratorController {
         stage.setIconified(true);
     }
 
-**
+    /**
      * Stage resize management
      *
      * @param stage
@@ -156,7 +156,7 @@ public class UndecoratorController {
         RESIZE_PADDING = PADDING;
         SHADOW_WIDTH = SHADOW;
         node.setOnMouseClicked(new EventHandler<MouseEvent>() {
-/ Maximize on double click
+            // Maximize on double click
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (undecorator.getStageStyle() != StageStyle.UTILITY && !stage.isFullScreen() && mouseEvent.getClickCount() > 1) {
@@ -187,14 +187,14 @@ public class UndecoratorController {
                 if (stage.isFullScreen()) {
                     return;
                 }
-*
+                /*
                  * Long press generates drag event!
                  */
                 if (mouseEvent.isStillSincePress()) {
                     return;
                 }
                 if (maximized) {
-/ Remove maximized state
+                    // Remove maximized state
                     undecorator.maximizeProperty.set(false);
                     return;
                 } // Docked then moved, so restore state
@@ -296,7 +296,7 @@ public class UndecoratorController {
         });
     }
 
-**
+    /**
      * Under Windows, the undecorator Stage could be been dragged below the Task bar and then no way to grab it again...
      * On Mac, do not drag above the menu bar
      *
@@ -335,7 +335,7 @@ public class UndecoratorController {
         return false;
     }
 
-**
+    /**
      * Allow this node to drag the Stage
      *
      * @param stage
@@ -344,7 +344,7 @@ public class UndecoratorController {
     public void setAsStageDraggable(final Stage stage, final Node node) {
 
         node.setOnMouseClicked(new EventHandler<MouseEvent>() {
-/ Maximize on double click
+            // Maximize on double click
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (undecorator.getStageStyle() != StageStyle.UTILITY && !stage.isFullScreen() && stage.isResizable() && mouseEvent.getClickCount() > 1) {
@@ -377,23 +377,23 @@ public class UndecoratorController {
                 if (stage.isFullScreen()) {
                     return;
                 }
-*
+                /*
                  * Long press generates drag event!
                  */
                 if (mouseEvent.isStillSincePress()) {
                     return;
                 }
                 if (maximized) {
-/ Remove Maximized state
+                    // Remove Maximized state
                     undecorator.maximizeProperty.set(false);
-/ Center 
+                    // Center 
                     stage.setX(mouseEvent.getScreenX() - stage.getWidth() / 2);
                     stage.setY(mouseEvent.getScreenY() - SHADOW_WIDTH);
                 } // Docked then moved, so restore state
                 else if (savedBounds != null) {
                     restoreSavedBounds(stage, false);
                     undecorator.setShadow(true);
-/ Center
+                    // Center
                     stage.setX(mouseEvent.getScreenX() - stage.getWidth() / 2);
                     stage.setY(mouseEvent.getScreenY() - SHADOW_WIDTH);
                 }
@@ -410,7 +410,7 @@ public class UndecoratorController {
                 testDock(stage, mouseEvent);
                 mouseEvent.consume();
 
-//////////////////////
+                ///////////////////////
 //                Robot robot = null;
 //                try {
 //                    robot = new Robot();
@@ -424,7 +424,7 @@ public class UndecoratorController {
 //                ImagePattern imagePattern = new ImagePattern(background);
 ////                undecorator.getBackgroundRectangle().setEffect(new BoxBlur());
 //                undecorator.getBackgroundRectangle().setFill(imagePattern);
-///////////////
+                ////////////////
             }
         });
         node.setOnMouseReleased(new EventHandler<MouseEvent>() {
@@ -443,13 +443,13 @@ public class UndecoratorController {
         node.setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-/setCursor(node, Cursor.DEFAULT);
+                //setCursor(node, Cursor.DEFAULT);
             }
         });
 
     }
 
-**
+    /**
      * (Humble) Simulation of Windows behavior on screen's edges Feedbacks
      */
     void testDock(Stage stage, MouseEvent mouseEvent) {
@@ -459,7 +459,7 @@ public class UndecoratorController {
         }
 
         int dockSide = getDockSide(mouseEvent);
-/ Dock Left
+        // Dock Left
         if (dockSide == DOCK_LEFT) {
             if (lastDocked == DOCK_LEFT) {
                 return;
@@ -467,7 +467,7 @@ public class UndecoratorController {
             ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
             Screen screen = screensForRectangle.get(0);
             Rectangle2D visualBounds = screen.getVisualBounds();
-/ Dock Left
+            // Dock Left
             double x = visualBounds.getMinX();
             double y = visualBounds.getMinY();
             double width = visualBounds.getWidth() / 2;
@@ -483,7 +483,7 @@ public class UndecoratorController {
             ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
             Screen screen = screensForRectangle.get(0);
             Rectangle2D visualBounds = screen.getVisualBounds();
-/ Dock Right (visualBounds = (javafx.geometry.Rectangle2D) Rectangle2D [minX = 1440.0, minY=300.0, maxX=3360.0, maxY=1500.0, width=1920.0, height=1200.0])
+            // Dock Right (visualBounds = (javafx.geometry.Rectangle2D) Rectangle2D [minX = 1440.0, minY=300.0, maxX=3360.0, maxY=1500.0, width=1920.0, height=1200.0])
             double x = visualBounds.getMinX() + visualBounds.getWidth() / 2;
             double y = visualBounds.getMinY();
             double width = visualBounds.getWidth() / 2;
@@ -499,7 +499,7 @@ public class UndecoratorController {
             ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
             Screen screen = screensForRectangle.get(0);
             Rectangle2D visualBounds = screen.getVisualBounds();
-/ Dock Left
+            // Dock Left
             double x = visualBounds.getMinX();
             double y = visualBounds.getMinY();
             double width = visualBounds.getWidth();
@@ -512,7 +512,7 @@ public class UndecoratorController {
         }
     }
 
-**
+    /**
      * Based on mouse position returns dock side
      *
      * @param mouseEvent
@@ -524,7 +524,7 @@ public class UndecoratorController {
         double maxX = 0;
         double maxY = 0;
 
-/ Get "big" screen bounds
+        // Get "big" screen bounds
         ObservableList<Screen> screens = Screen.getScreens();
         for (Screen screen : screens) {
             Rectangle2D visualBounds = screen.getVisualBounds();
@@ -533,7 +533,7 @@ public class UndecoratorController {
             maxX = Math.max(maxX, visualBounds.getMaxX());
             maxY = Math.max(maxY, visualBounds.getMaxY());
         }
-/ Dock Left
+        // Dock Left
         if (mouseEvent.getScreenX() == minX) {
             return DOCK_LEFT;
         } else if (mouseEvent.getScreenX() >= maxX - 1) { // MaxX returns the width? Not width -1 ?!
@@ -544,20 +544,20 @@ public class UndecoratorController {
         return 0;
     }
 
-**
+    /**
      * (Humble) Simulation of Windows behavior on screen's edges Actions
      */
     void dockActions(Stage stage, MouseEvent mouseEvent) {
         ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
         Screen screen = screensForRectangle.get(0);
         Rectangle2D visualBounds = screen.getVisualBounds();
-/ Dock Left
+        // Dock Left
         if (mouseEvent.getScreenX() == visualBounds.getMinX()) {
             savedBounds = new BoundingBox(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
 
             stage.setX(visualBounds.getMinX());
             stage.setY(visualBounds.getMinY());
-/ Respect Stage Max size
+            // Respect Stage Max size
             double width = visualBounds.getWidth() / 2;
             if (stage.getMaxWidth() < width) {
                 width = stage.getMaxWidth();
@@ -578,7 +578,7 @@ public class UndecoratorController {
 
             stage.setX(visualBounds.getWidth() / 2 + visualBounds.getMinX());
             stage.setY(visualBounds.getMinY());
-/ Respect Stage Max size
+            // Respect Stage Max size
             double width = visualBounds.getWidth() / 2;
             if (stage.getMaxWidth() < width) {
                 width = stage.getMaxWidth();
