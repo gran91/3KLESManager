@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kles.view.MainController">
+    <children>
+        <fx:include fx:id="accountInformation" source="AccountInformation.fxml" />
+        <ScrollPane fitToWidth="true" prefHeight="500" prefWidth="600.0">
+            <content>
+                <Accordion fx:id="accordion" BorderPane.alignment="CENTER">
+                    <panes>
+                        <TitledPane fx:id="titledPassword" prefHeight="150.0" prefWidth="450.0" text="%user.changepassword">
+                            <content>
+                                <fx:include fx:id="changePassword" source="ChangePassword.fxml" />
+                            </content>
+                        </TitledPane>
+                        <TitledPane fx:id="titledResponder" prefHeight="317.0" prefWidth="613.0" text="%user.manageresponder">
+                            <content>
+                                <fx:include fx:id="responderManagement" source="ResponderManagement.fxml" />
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>

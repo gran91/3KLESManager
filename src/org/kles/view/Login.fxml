@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="196.0" prefWidth="488.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kles.view.LoginController">
+    <children>
+        <GridPane layoutX="10.0" layoutY="67.0" prefHeight="78.0" prefWidth="391.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="67.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="134.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="226.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="%user.login" />
+                <TextField fx:id="loginField" GridPane.columnIndex="1" />
+                <Label text="%user.password" GridPane.rowIndex="1" />
+                <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            </children>
+        </GridPane>
+        <HBox layoutX="197.1875" layoutY="241.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <children>
+                <Button fx:id="buttonOK" defaultButton="true" layoutX="197.1875" layoutY="241.0" mnemonicParsing="false" onAction="#handleOk" prefWidth="110.0" text="OK" />
+            <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#handleCancel" prefWidth="110.0" text="%main.cancel" />
+            </children>
+        </HBox>
+      <Label fx:id="labelError" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="16.0" prefHeight="31.0" prefWidth="389.0" textAlignment="CENTER" textFill="#ee1d1d" wrapText="true">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ProgressIndicator fx:id="progress" layoutX="446.0" layoutY="16.0" prefHeight="31.0" prefWidth="28.0" visible="false" />
+      <ImageView fitHeight="65.0" fitWidth="66.0" layoutX="20.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/images/logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="bConfig" layoutX="26.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleConnection" prefHeight="21.0" prefWidth="20.0">
+         <graphic>
+            <MaterialIconView glyphName="SETTINGS" glyphStyle="-fx-fill: linear-gradient(#70B4E5 0%, #247CBC 70%, #2C85C1 85%)" size="20" />
+         </graphic>
+      </Button>
+    </children>
+</AnchorPane>

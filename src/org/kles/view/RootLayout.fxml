@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="580.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kles.view.RootLayoutController">
+    <top>
+        <MenuBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="61.0" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="%main.file">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%main.quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%main.configuration">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showConnection" text="%main.connection" />
+                    </items>
+                </Menu>
+                <Menu fx:id="skinmenu" mnemonicParsing="false" text="Skin" />
+                <Menu fx:id="langmenu" mnemonicParsing="false" text="%main.language">
+                    <items>
+                        <RadioMenuItem id="fr_FR" fx:id="menuFR" mnemonicParsing="false" text="%language.french">
+                            <graphic>
+                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/resources/images/lng_FR.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </RadioMenuItem>
+                        <RadioMenuItem id="en_EN" fx:id="menuEN" mnemonicParsing="false" text="%language.english">
+                            <graphic>
+                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/resources/images/lng_EN.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </RadioMenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="?">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%about.title" />
+                    </items>
+                </Menu>
+            </menus>
+            <BorderPane.margin>
+                <Insets top="30.0" />
+            </BorderPane.margin>
+        </MenuBar>
+    </top>
+</BorderPane>

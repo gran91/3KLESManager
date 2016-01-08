@@ -1,0 +1,53 @@
+.circle_black {
+
+    -fx-fill  : linear-gradient(from 50% 0% to 50% 100%,
+
+        rgb(0, 0, 0) 0%,
+
+        rgb(0, 0, 0) 100%);
+
+    -fx-stroke: transparent;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 10, 0.5, 0.0, 0.0);
+
+    -fx-effect: innershadow(gaussian, rgba(1, 1, 1, 0.65), 10, 0.5, 0.0, 5.0);
+
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.65), 10, 0.5, 0.0, -5.0);
+
+}
+
+.circle_green {
+
+    -fx-fill  : linear-gradient(from 50% 0% to 50% 100%,
+
+        rgb(0, 255, 0) 0%,
+
+        rgb(0, 255, 0) 100%);
+
+    -fx-stroke: transparent;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 10, 0.5, 0.0, 0.0);
+
+    -fx-effect: innershadow(gaussian, rgba(1, 1, 1, 0.65), 10, 0.5, 0.0, 5.0);
+
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.65), 10, 0.5, 0.0, -5.0);
+
+}
+
+.circle_red {
+
+    -fx-fill  : linear-gradient(from 50% 0% to 50% 100%,
+
+        rgb(255, 0, 0) 0%,
+
+        rgb(255, 0, 0) 100%);
+
+    -fx-stroke: transparent;
+
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 10, 0.5, 0.0, 0.0);
+
+    -fx-effect: innershadow(gaussian, rgba(1, 1, 1, 0.65), 10, 0.5, 0.0, 5.0);
+
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.65), 10, 0.5, 0.0, -5.0);
+
+}
